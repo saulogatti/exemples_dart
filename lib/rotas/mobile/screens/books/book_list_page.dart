@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:exemplos_flutter/logs/logger_class_mixin.dart';
 import 'package:exemplos_flutter/rotas/data/db.dart';
-import 'package:exemplos_flutter/rotas/mobile/router/router.gr.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
 
 //ignore_for_file: public_member_api_docs
@@ -12,7 +13,7 @@ class BookListScreen extends StatefulWidget {
   State<BookListScreen> createState() => _BookListScreenState();
 }
 
-class _BookListScreenState extends State<BookListScreen> {
+class _BookListScreenState extends State<BookListScreen> with LoggerClassMixin {
   @override
   Widget build(BuildContext context) {
     final booksDb = BooksDBProvider.of(context);
@@ -27,7 +28,7 @@ class _BookListScreenState extends State<BookListScreen> {
                 subtitle: Text(book.genre),
                 onTap: () async {
                   final result = await context.pushRoute<String>(BookDetailsRoute(id: book.id));
-                  print('BookDetailsRoute result: $result');
+                  logDebug('BookDetailsRoute result: $result');
                 },
               ),
             ),

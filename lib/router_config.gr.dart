@@ -10,7 +10,9 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:exemplos_flutter/rotas/declarative/declarative.router.dart' as _i1;
+import 'package:exemplos_flutter/my_home_page.dart' as _i8;
+import 'package:exemplos_flutter/rotas/declarative/declarative.router.dart'
+    as _i1;
 import 'package:exemplos_flutter/rotas/mobile/screens/books/book_details_page.dart'
     as _i2;
 import 'package:exemplos_flutter/rotas/mobile/screens/books/book_list_page.dart'
@@ -21,10 +23,9 @@ import 'package:exemplos_flutter/rotas/mobile/screens/profile/my_books_page.dart
     as _i7;
 import 'package:exemplos_flutter/rotas/mobile/screens/profile/profile_page.dart'
     as _i9;
-import 'package:exemplos_flutter/rotas/mobile/screens/settings_page.dart' as _i10;
-import 'package:exemplos_flutter/my_home_page.dart' as _i8;
-import 'package:exemplos_flutter/routes_simples/routes_simples.dart'
-    as _i4;
+import 'package:exemplos_flutter/rotas/mobile/screens/settings_page.dart'
+    as _i10;
+import 'package:exemplos_flutter/routes_simples/routes_simples.dart' as _i4;
 import 'package:flutter/material.dart' as _i12;
 
 /// generated route for

@@ -1,3 +1,4 @@
+import 'package:exemplos_flutter/logs/printer/logger_printer.dart';
 import 'package:exemplos_flutter/router_config.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final ExemplosRouter config = ExemplosRouter();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(routerConfig: config.config(), title: 'Flutter Exemplos');
+  }
+
+  @override
+  void initState() {
+    LoggerPrinter();
+    super.initState();
   }
 }

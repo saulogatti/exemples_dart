@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/rotas/mobile/router/router.gr.dart';
 import 'package:exemplos_flutter/rotas/mobile/screens/home_page.dart';
 import 'package:exemplos_flutter/rotas/mobile/screens/user-data/data_collector.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
 
 //ignore_for_file: public_member_api_docs

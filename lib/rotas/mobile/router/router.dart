@@ -1,12 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/auth_guard.dart';
-import 'package:exemplos_flutter/rotas/mobile/router/router.gr.dart';
 import 'package:exemplos_flutter/rotas/mobile/screens/profile/routes.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
+
+const BooksTab = EmptyShellRoute('BooksTab');
+
+const ProfileTab = EmptyShellRoute('ProfileTab');
 
 // ignore_for_file: constant_identifier_names
 @AutoRouterConfig(generateForDir: ['lib/mobile'])
 class AppRouter extends RootStackRouter {
-
   AppRouter(this.authService);
   final AuthService authService;
 
@@ -46,6 +49,3 @@ class AppRouter extends RootStackRouter {
     RedirectRoute(path: '*', redirectTo: '/'),
   ];
 }
-
-const BooksTab = EmptyShellRoute('BooksTab');
-const ProfileTab = EmptyShellRoute('ProfileTab');

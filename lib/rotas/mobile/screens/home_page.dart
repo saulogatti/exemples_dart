@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/router.dart';
-import 'package:exemplos_flutter/rotas/mobile/router/router.gr.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -93,7 +93,8 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             items: [
               const BottomNavigationBarItem(icon: Icon(Icons.source), label: 'Books'),
               const BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-              if (_showSettingsTap) const BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+              if (_showSettingsTap)
+                const BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
             ],
           );
   }
@@ -104,7 +105,6 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
 }
 
 class RouteDestination {
-
   const RouteDestination({required this.route, required this.icon, required this.label});
   final PageRouteInfo route;
   final IconData icon;

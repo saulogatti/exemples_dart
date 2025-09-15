@@ -1,11 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/rotas/mobile/router/router.gr.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
 
 //ignore_for_file: public_member_api_docs
 @RoutePage()
 class MyBooksPage extends StatelessWidget {
-
   const MyBooksPage({super.key, @queryParam this.filter = 'none2'});
   final String? filter;
 
@@ -31,7 +30,8 @@ class MyBooksPage extends StatelessWidget {
             ),
             ElevatedButton(onPressed: () => context.back(), child: const Text('Navigate back')),
             ElevatedButton(
-              onPressed: () => context.router.root.pushAndPopUntil(const HomeRoute(), predicate: (_) => false),
+              onPressed: () =>
+                  context.router.root.pushAndPopUntil(const HomeRoute(), predicate: (_) => false),
               child: const Text('Pop until /home'),
             ),
           ],

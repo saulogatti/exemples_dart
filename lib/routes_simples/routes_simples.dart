@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:exemplos_flutter/logs/logger_class_mixin.dart';
 import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class FirstScreen extends StatelessWidget {
+class FirstScreen extends StatelessWidget with LoggerClassMixin {
   const FirstScreen({super.key});
 
   @override
@@ -13,7 +14,7 @@ class FirstScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () =>
-              context.pushRoute(const SecondRoute()).then((value) => print('Pushed screen result: $value')),
+              context.pushRoute(const SecondRoute()).then((value) => logDebug('Pushed screen result: $value')),
           child: const Text('Go to second screen'),
         ),
       ),
@@ -44,7 +45,7 @@ class HostScreen extends StatelessWidget {
 }
 
 @RoutePage()
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatelessWidget with LoggerClassMixin {
   const SecondScreen({super.key});
 
   @override
@@ -60,7 +61,7 @@ class SecondScreen extends StatelessWidget {
               onPressed: () {
                 AutoRouter.of(
                   context,
-                ).pushWidget(const FirstScreen()).then((value) => print('Pushed screen result: $value'));
+                ).pushWidget(const FirstScreen()).then((value) => logDebug('Pushed screen result: $value'));
               },
               child: const Text('PUSH'),
             ),

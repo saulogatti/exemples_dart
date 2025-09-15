@@ -1,38 +1,45 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/rotas/declarative/declarative.router.gr.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(DeclarativeNavigationExampleApp());
 }
 
-@AutoRouterConfig(generateForDir: ['lib/declarative'])
-class DecRouter extends RootStackRouter {
+// age submit page
+@RoutePage()
+class AgeInputScreen extends StatefulWidget {
+  const AgeInputScreen({required this.onAgeSubmitted, super.key});
+  final ValueChanged<int> onAgeSubmitted;
+
   @override
-  List<AutoRoute> get routes => [
-        AutoRoute(
-          page: MainRoute.page,
-          initial: true,
-          children: [
-            AutoRoute(page: NameInputRoute.page),
-            AutoRoute(page: AgeInputRoute.page),
-            AutoRoute(page: ResultRoute.page),
-          ],
-        ),
-      ];
+  State<AgeInputScreen> createState() => _AgeInputScreenState();
 }
 
 class DeclarativeNavigationExampleApp extends StatelessWidget {
-
   DeclarativeNavigationExampleApp({super.key});
   final _router = DecRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: _router.config(),
-    );
+    return MaterialApp.router(routerConfig: _router.config());
   }
+}
+
+@AutoRouterConfig(generateForDir: ['lib/declarative'])
+class DecRouter extends RootStackRouter {
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(
+      page: MainRoute.page,
+      initial: true,
+      children: [
+        AutoRoute(page: NameInputRoute.page),
+        AutoRoute(page: AgeInputRoute.page),
+        AutoRoute(page: ResultRoute.page),
+      ],
+    ),
+  ];
 }
 
 @RoutePage()
@@ -41,6 +48,88 @@ class MainScreen extends StatefulWidget {
 
   @override
   State<MainScreen> createState() => _MainScreenState();
+}
+
+@RoutePage()
+class NameInputScreen extends StatefulWidget {
+  const NameInputScreen({required this.onNameSubmitted, super.key});
+  final ValueChanged<String> onNameSubmitted;
+
+  @override
+  State<NameInputScreen> createState() => _NameInputScreenState();
+}
+
+class Profile {
+  const Profile({this.name, this.age});
+
+  final String? name;
+  final int? age;
+
+  Profile copyWith({String? name, int? age}) {
+    return Profile(name: name ?? this.name, age: age ?? this.age);
+  }
+}
+
+@RoutePage()
+class ResultScreen extends StatelessWidget {
+  const ResultScreen({required this.profile, required this.onReset, super.key});
+  final Profile profile;
+  final VoidCallback onReset;
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Colors.white,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Text('Name: ${profile.name}'),
+              Text('Age: ${profile.age}'),
+              const SizedBox(height: 16),
+              ElevatedButton(onPressed: onReset, child: const Text('Reset State')),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AgeInputScreenState extends State<AgeInputScreen> {
+  final _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: Colors.white,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              const Text('Enter your age'),
+              TextField(controller: _controller, textAlign: TextAlign.center),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  widget.onAgeSubmitted(int.parse(_controller.text));
+                },
+                child: const Text('Submit'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -84,24 +173,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-@RoutePage()
-class NameInputScreen extends StatefulWidget {
-
-  const NameInputScreen({required this.onNameSubmitted, super.key});
-  final ValueChanged<String> onNameSubmitted;
-
-  @override
-  State<NameInputScreen> createState() => _NameInputScreenState();
-}
-
 class _NameInputScreenState extends State<NameInputScreen> {
   final _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,92 +200,10 @@ class _NameInputScreenState extends State<NameInputScreen> {
       ),
     );
   }
-}
-
-// age submit page
-@RoutePage()
-class AgeInputScreen extends StatefulWidget {
-
-  const AgeInputScreen({required this.onAgeSubmitted, super.key});
-  final ValueChanged<int> onAgeSubmitted;
-
-  @override
-  State<AgeInputScreen> createState() => _AgeInputScreenState();
-}
-
-class _AgeInputScreenState extends State<AgeInputScreen> {
-  final _controller = TextEditingController();
 
   @override
   void dispose() {
     _controller.dispose();
     super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              const Text('Enter your age'),
-              TextField(controller: _controller, textAlign: TextAlign.center),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  widget.onAgeSubmitted(int.parse(_controller.text));
-                },
-                child: const Text('Submit'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-@RoutePage()
-class ResultScreen extends StatelessWidget {
-
-  const ResultScreen({required this.profile, required this.onReset, super.key});
-  final Profile profile;
-  final VoidCallback onReset;
-
-  @override
-  Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Text('Name: ${profile.name}'),
-              Text('Age: ${profile.age}'),
-              const SizedBox(height: 16),
-              ElevatedButton(onPressed: onReset, child: const Text('Reset State')),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Profile {
-  const Profile({this.name, this.age});
-
-  final String? name;
-  final int? age;
-
-  Profile copyWith({String? name, int? age}) {
-    return Profile(
-      name: name ?? this.name,
-      age: age ?? this.age,
-    );
   }
 }

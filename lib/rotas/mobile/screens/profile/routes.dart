@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/router.dart';
-import 'package:exemplos_flutter/rotas/mobile/router/router.gr.dart';
+import 'package:exemplos_flutter/router_config.gr.dart';
 
 //ignore_for_file: public_member_api_docs
 final profileRoute = AutoRoute(
