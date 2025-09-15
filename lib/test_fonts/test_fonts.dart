@@ -15,11 +15,19 @@ class _TestFontsState extends State<TestFonts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Test Fonts')),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
+            const SliverToBoxAdapter(
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text("Open Sans", style: TextStyle(fontSize: 26, color: Colors.black)),
+                ),
+              ),
+            ),
             SliverList.separated(
               itemCount: FontWeight.values.length,
               separatorBuilder: (context, index) => const SizedBox(height: 20),
@@ -31,22 +39,27 @@ class _TestFontsState extends State<TestFonts> {
                   children: [
                     Expanded(
                       child: ColoredBox(
-                        color: Colors.blue,
+                        color: Colors.transparent,
                         child: Center(
                           child: Text(
-                            'Font $index',
-                            style: GoogleFonts.openSans(fontWeight: fontWeight, fontSize: 26),
+                            'GoogleFont $index',
+                            style: GoogleFonts.openSans(
+                              fontWeight: fontWeight,
+                              fontSize: 26,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
                     ),
                     Expanded(
                       child: ColoredBox(
-                        color: Colors.red,
+                        color: Colors.transparent,
                         child: Center(
                           child: Text(
                             'Font $index',
                             style: TextStyle(
+                              color: Colors.black,
                               fontWeight: fontWeight,
                               fontFamily: FontFamily.openSans,
                               fontSize: 26,
@@ -59,7 +72,14 @@ class _TestFontsState extends State<TestFonts> {
                 );
               },
             ),
-            const SliverToBoxAdapter(child: SizedBox(height: 40)),
+            const SliverToBoxAdapter(
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text("Lato", style: TextStyle(fontSize: 26, color: Colors.black)),
+                ),
+              ),
+            ),
             SliverList.separated(
               itemCount: FontWeight.values.length,
               separatorBuilder: (context, index) => const SizedBox(height: 20),
@@ -71,22 +91,27 @@ class _TestFontsState extends State<TestFonts> {
                   children: [
                     Expanded(
                       child: ColoredBox(
-                        color: Colors.blue,
+                        color: Colors.transparent,
                         child: Center(
                           child: Text(
-                            'Font $index',
-                            style: GoogleFonts.lato(fontWeight: fontWeight, fontSize: 26),
+                            'GoogleFont $index',
+                            style: GoogleFonts.lato(
+                              fontWeight: fontWeight,
+                              fontSize: 26,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
                     ),
                     Expanded(
                       child: ColoredBox(
-                        color: Colors.red,
+                        color: Colors.transparent,
                         child: Center(
                           child: Text(
                             'Font $index',
                             style: TextStyle(
+                              color: Colors.black,
                               fontWeight: fontWeight,
                               fontFamily: FontFamily.lato,
                               fontSize: 26,
