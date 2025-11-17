@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/logs/logger_class_mixin.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/auth_guard.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/router.dart';
 import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 import 'package:provider/provider.dart';
 
 @RoutePage(name: 'SettingsTab')

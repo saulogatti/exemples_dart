@@ -1,7 +1,6 @@
-import 'package:exemplos_flutter/logs/logger_object.dart';
-import 'package:exemplos_flutter/logs/printer/logger_printer.dart';
 import 'package:exemplos_flutter/logs/widget/line_log_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 
 class DropdownButtonLog extends StatefulWidget {
   const DropdownButtonLog({required this.dropdownValue, super.key, this.onChanged});
@@ -49,7 +48,7 @@ class _DropdownButtonExampleState extends State<DropdownButtonLog> {
         IconButton(
           alignment: Alignment.center,
           onPressed: () => setState(() {
-            LoggerPrinter().clearList(type: widget.dropdownValue);
+            LogDisplayHandler().clearList(type: widget.dropdownValue);
           }),
           icon: const Icon(Icons.clear),
         ),
@@ -77,7 +76,7 @@ class _LogWidgetState extends State<LogWidget> {
                 return DropdownButtonLog(
                   dropdownValue: value,
                   onChanged: (value) {
-                    _filteredLogs = LoggerPrinter().getLogsType(value!);
+                    _filteredLogs = LogDisplayHandler().getLogsType(value!);
                     _selectedLogType.value = value;
                   },
                 );
@@ -106,10 +105,10 @@ class _LogWidgetState extends State<LogWidget> {
 
   @override
   void initState() {
-    _filteredLogs = LoggerPrinter().getLogsType(EnumLoggerType.debug);
-    LoggerPrinter().notifier.addListener(() {
+    _filteredLogs = LogDisplayHandler().getLogsType(EnumLoggerType.debug);
+    LogDisplayHandler().notifier.addListener(() {
       setState(() {
-        _filteredLogs = LoggerPrinter().getLogsType(_selectedLogType.value);
+        _filteredLogs = LogDisplayHandler().getLogsType(_selectedLogType.value);
       });
     });
     super.initState();

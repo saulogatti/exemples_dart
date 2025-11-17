@@ -1,9 +1,7 @@
-import 'package:exemplos_flutter/logs/logger_class_mixin.dart';
-import 'package:exemplos_flutter/logs/logger_object.dart';
-import 'package:exemplos_flutter/logs/printer/logger_printer.dart';
 import 'package:exemplos_flutter/logs/widget/line_log_widget.dart';
 import 'package:exemplos_flutter/logs/widget/log_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 
 const listLog = EnumLoggerType.values;
 
@@ -33,7 +31,7 @@ class _ExemploErrosState extends State<ExemploErros> with LoggerClassMixin {
                 return DropdownButtonLog(
                   dropdownValue: value,
                   onChanged: (value) {
-                    _filteredLogs = LoggerPrinter().getLogsType(value!);
+                    _filteredLogs = LogDisplayHandler().getLogsType(value!);
                     _selectedLogType.value = value;
                   },
                 );
@@ -95,10 +93,10 @@ class _ExemploErrosState extends State<ExemploErros> with LoggerClassMixin {
 
   @override
   void initState() {
-    _filteredLogs = LoggerPrinter().getLogsType(EnumLoggerType.error);
-    LoggerPrinter().notifier.addListener(() {
+    _filteredLogs = LogDisplayHandler().getLogsType(EnumLoggerType.error);
+    LogDisplayHandler().notifier.addListener(() {
       setState(() {
-        _filteredLogs = LoggerPrinter().getLogsType(_selectedLogType.value);
+        _filteredLogs = LogDisplayHandler().getLogsType(_selectedLogType.value);
       });
     });
     super.initState();

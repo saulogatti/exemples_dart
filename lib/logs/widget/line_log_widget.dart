@@ -1,8 +1,7 @@
-import 'package:exemplos_flutter/logs/logger_object.dart';
-import 'package:exemplos_flutter/logs/printer/logger_printer.dart';
-import 'package:exemplos_flutter/logs/utils/date_time_log_helper.dart';
+
 import 'package:exemplos_flutter/logs/widget/details_error.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 
 class LineLogWidget extends StatelessWidget {
   const LineLogWidget({required this.log, required this.index, super.key});
@@ -45,13 +44,13 @@ class LineLogWidget extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             textAlign: TextAlign.center,
-            "#$index - ${log.getStartLog(false)} ${log.creationDateTime.onlyTime()}".toUpperCase(),
+            "#$index - ${log.getStartLog(false)} ${log.logCreationDate.onlyTime()}".toUpperCase(),
           ),
         ),
         leading: IconButton(
           iconSize: 20,
           padding: EdgeInsets.zero,
-          onPressed: () => LoggerPrinter().clearList(type: log.enumLoggerType, index: index),
+          onPressed: () => LogDisplayHandler().clearList(type: log.enumLoggerType, index: index),
           icon: const Icon(Icons.clear),
           color: Colors.white,
         ),

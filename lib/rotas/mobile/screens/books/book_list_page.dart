@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/logs/logger_class_mixin.dart';
 import 'package:exemplos_flutter/rotas/data/db.dart';
 import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 
 //ignore_for_file: public_member_api_docs
 @RoutePage()

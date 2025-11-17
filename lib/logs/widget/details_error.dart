@@ -1,5 +1,5 @@
-import 'package:exemplos_flutter/logs/logger_object.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 
 class DetailsError extends StatelessWidget {
   const DetailsError({required this.log, super.key});

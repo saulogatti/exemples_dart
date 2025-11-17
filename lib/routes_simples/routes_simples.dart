@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/logs/logger_class_mixin.dart';
 import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/material.dart';
+import 'package:log_custom_printer/log_custom_printer.dart';
 
 @RoutePage()
 class FirstScreen extends StatelessWidget with LoggerClassMixin {
@@ -13,8 +13,9 @@ class FirstScreen extends StatelessWidget with LoggerClassMixin {
       backgroundColor: Colors.transparent,
       body: Center(
         child: ElevatedButton(
-          onPressed: () =>
-              context.pushRoute(const SecondRoute()).then((value) => logDebug('Pushed screen result: $value')),
+          onPressed: () => context
+              .pushRoute(const SecondRoute())
+              .then((value) => logDebug('Pushed screen result: $value')),
           child: const Text('Go to second screen'),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:exemplos_flutter/logs/widget/exemplo_erros.dart';
 import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:exemplos_flutter/test_fonts/test_fonts.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          AutoRouter.of(context).pushWidget(const ExemploErros());
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
