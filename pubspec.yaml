@@ -2,7 +2,7 @@ name: exemplos_flutter
 description: "Projeto de exemplo Flutter."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
@@ -16,7 +16,12 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   log_custom_printer:
-    path: /Users/saulo.gatti/Documents/Desenvolvimento/projetos/pessoal/log_custom_printer
+    git:
+      url: https://github.com/saulogatti/log_custom_printer.git
+      tag_pattern: "v_{{version}}"
+    version: ^1.1.0
+  typed_cache_json:
+    path: ../typed_cache_json
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -24,16 +29,16 @@ dependencies:
   provider: ^6.1.5
   auto_route:
 
-
-
   collection: any
   google_fonts: ^6.3.1
   json_annotation: ^4.9.0
+  meta: ^1.17.0
 
 dev_dependencies:
   build_runner: ^2.4.15
   auto_route_generator: ^10.2.4
   flutter_lints: ^6.0.0
+  json_serializable: ^6.11.3
 
 flutter_gen:
   parse_metadata: true # Optional (default: false)

@@ -62,6 +62,7 @@ analyzer:
 
 linter:
   rules:
+    - remove_deprecations_in_breaking_versions
     - always_declare_return_types
     - always_put_required_named_parameters_first
     - always_use_package_imports

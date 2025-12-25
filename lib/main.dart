@@ -3,17 +3,22 @@ import 'package:exemplos_flutter/rotas/data/db.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/auth_guard.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/router.dart';
 import 'package:exemplos_flutter/router_config.dart';
+import 'package:exemplos_flutter/test_fonts/cache_font.dart';
 import 'package:flutter/material.dart';
 import 'package:log_custom_printer/log_custom_printer.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await cacheBackend.initialize();
   if (executeRoutes) {
     runApp(const MyAppRoutes());
   } else {
     runApp(const MyApp());
   }
 }
+
+CacheBackend cacheBackend = CacheBackend();
 
 bool executeRoutes = false;
 
