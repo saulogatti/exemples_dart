@@ -26,6 +26,27 @@ class CacheBackend with JsonUtils {
   }
 }
 
+class CacheBackendClassA with JsonUtils {
+  late JsonStore _cacheBackend;
+  Future<T?> get<T extends CacheSealedClass>(String key) async {
+    final data = await _cacheBackend.get(key, codec: CacheFontCodec());
+    return data as T?;
+  }
+
+  Future<void> initialize() async {
+    _cacheBackend = await createJsonCache(
+      location: CacheLocation.support,
+      fileName: 'fonts_cache.json',
+      subdir: 'font_cache',
+      enableRecovery: true,
+    );
+  }
+
+  Future<void> save(CacheSealedClassA cacheFont) async {
+    await _cacheBackend.put(cacheFont.key, cacheFont, codec: CacheFontCodec());
+  }
+}
+
 @JsonSerializable()
 class CacheFont extends CacheSealedClass {
   CacheFont({required super.key, required this.fontName, required this.fontSize});

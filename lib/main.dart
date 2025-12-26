@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await cacheBackend.initialize();
+  await cacheBackendClassA.initialize();
   if (executeRoutes) {
     runApp(const MyAppRoutes());
   } else {
@@ -19,7 +20,7 @@ void main() async {
 }
 
 CacheBackend cacheBackend = CacheBackend();
-
+CacheBackendClassA cacheBackendClassA = CacheBackendClassA();
 bool executeRoutes = false;
 
 class MyApp extends StatefulWidget {

@@ -1,17 +1,9 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:exemplos_flutter/assets_gen/fonts.gen.dart';
 import 'package:exemplos_flutter/main.dart';
 import 'package:exemplos_flutter/test_fonts/cache_font.dart';
+import 'package:exemplos_flutter/test_fonts/cache_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-class CacheWidget extends StatefulWidget {
-  const CacheWidget({required this.length, super.key});
-  final int length;
-
-  @override
-  State<CacheWidget> createState() => _CacheWidgetState();
-}
 
 class TestFonts extends StatefulWidget {
   const TestFonts({super.key});
@@ -19,41 +11,6 @@ class TestFonts extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _TestFontsState();
-  }
-}
-
-class _CacheWidgetState extends State<CacheWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(title: const Text('Cache Widget'), leading: const AutoLeadingButton()),
-      body: SafeArea(
-        child: ListView.builder(
-          itemCount: widget.length,
-          itemBuilder: (context, index) {
-            return FutureBuilder<CacheFont?>(
-              future: cacheBackend.get('open_sans_$index'),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                } else if (!snapshot.hasData || snapshot.data == null) {
-                  return const Text('No data found');
-                } else {
-                  final cacheFont = snapshot.data!;
-                  return Text(
-                    'Font Name: ${cacheFont.fontName}, Font Size: ${cacheFont.key}',
-                    style: TextStyle(fontFamily: cacheFont.fontName, fontSize: 14),
-                  );
-                }
-              },
-            );
-          },
-        ),
-      ),
-    );
   }
 }
 
@@ -84,6 +41,11 @@ class _TestFontsState extends State<TestFonts> {
                   fontSize: 14,
                 );
                 cacheBackend.save(cacheFont);
+                final CacheSealedClassA cacheFontA = CacheSealedClassA(
+                  key: 'CacheBackendClassA_$index'.toLowerCase(),
+                  valueA: 'Description A $index',
+                );
+                cacheBackendClassA.save(cacheFontA);
                 final fontWeight = FontWeight.values[index];
                 return Row(
                   mainAxisSize: MainAxisSize.max,
