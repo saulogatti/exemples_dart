@@ -69,6 +69,7 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
             builder: (context, child) {
               return Scaffold(
                 appBar: AppBar(
+                  backgroundColor: Colors.amber,
                   leading: const AutoLeadingButton(),
                   title: Text(context.topRoute.title(context)),
                   // bottom: TabBar(

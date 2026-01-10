@@ -20,18 +20,20 @@ dependencies:
       url: https://github.com/saulogatti/log_custom_printer.git
       tag_pattern: "v_{{version}}"
     version: ^1.1.0
-  typed_cache_json:
-    path: ../typed_cache_json
+  typed_cache: ^0.3.0
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   provider: ^6.1.5
-  auto_route:
+  auto_route: ^11.1.0
 
-  collection: any
-  google_fonts: ^6.3.1
+  collection: ^1.19.1
+  google_fonts: ^7.0.0
   json_annotation: ^4.9.0
+  path_provider: ^2.1.5
+  path: ^1.9.1
+  process_run: ^1.2.4
   meta: ^1.17.0
 
 dev_dependencies:

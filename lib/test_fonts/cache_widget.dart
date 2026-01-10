@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:exemplos_flutter/main.dart';
 import 'package:exemplos_flutter/test_fonts/cache_font.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +29,7 @@ class _CacheAWidgetState extends State<CacheAWidget> {
           itemCount: widget.length,
           itemBuilder: (context, index) {
             return FutureBuilder<CacheSealedClassA?>(
-              future: cacheBackendClassA.get('cachebackendclassa_$index'),
+              future: cacheBackend.get('cachebackendclassa_$index'),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const CircularProgressIndicator();
@@ -72,7 +71,7 @@ class _CacheWidgetState extends State<CacheWidget> {
           separatorBuilder: (context, index) => const SizedBox(height: 20),
           itemBuilder: (context, index) {
             return FutureBuilder<CacheSealedClassA?>(
-              future: cacheBackendClassA.get('cachebackendclassa_$index'),
+              future: cacheBackend.get('cachebackendclassa_$index'),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const CircularProgressIndicator();
@@ -99,33 +98,33 @@ class _CacheWidgetState extends State<CacheWidget> {
             ),
           ),
         ),
-        SliverList.separated(
-          itemCount: FontWeight.values.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 20),
-          itemBuilder: (context, index) {
-            return FutureBuilder<CacheFont?>(
-              future: cacheBackend.get(_getKeyCahce(index)),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                } else if (!snapshot.hasData || snapshot.data == null) {
-                  return const Text('No data found');
-                } else {
-                  final cacheFont = snapshot.data!;
-                  return Text(
-                    'Font Name: ${cacheFont.fontName}, Font Size: ${cacheFont.key}',
-                    style: TextStyle(fontFamily: cacheFont.fontName, fontSize: 14),
-                  );
-                }
-              },
-            );
-          },
-        ),
+        // SliverList.separated(
+        //   itemCount: FontWeight.values.length,
+        //   separatorBuilder: (context, index) => const SizedBox(height: 20),
+        //   itemBuilder: (context, index) {
+        //     return FutureBuilder<CacheFont?>(
+        //       future: cacheBackend.get(_getKeyCahce(index)),
+        //       builder: (context, snapshot) {
+        //         if (snapshot.connectionState == ConnectionState.waiting) {
+        //           return const CircularProgressIndicator();
+        //         } else if (snapshot.hasError) {
+        //           return Text('Error: ${snapshot.error}');
+        //         } else if (!snapshot.hasData || snapshot.data == null) {
+        //           return const Text('No data found');
+        //         } else {
+        //           final cacheFont = snapshot.data!;
+        //           return Text(
+        //             'Font Name: ${cacheFont.fontName}, Font Size: ${cacheFont.key}',
+        //             style: TextStyle(fontFamily: cacheFont.fontName, fontSize: 14),
+        //           );
+        //         }
+        //       },
+        //     );
+        //   },
+        // ),
       ],
     );
   }
 
-  String _getKeyCahce(int index) => 'open_sans_$index';
+  // String _getKeyCahce(int index) => 'open_sans_$index';
 }

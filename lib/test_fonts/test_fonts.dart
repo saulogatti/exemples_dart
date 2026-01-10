@@ -1,5 +1,4 @@
 import 'package:exemplos_flutter/assets_gen/fonts.gen.dart';
-import 'package:exemplos_flutter/main.dart';
 import 'package:exemplos_flutter/test_fonts/cache_font.dart';
 import 'package:exemplos_flutter/test_fonts/cache_widget.dart';
 import 'package:flutter/material.dart';
@@ -31,61 +30,7 @@ class _TestFontsState extends State<TestFonts> {
                 ),
               ),
             ),
-            SliverList.separated(
-              itemCount: FontWeight.values.length,
-              separatorBuilder: (context, index) => const SizedBox(height: 20),
-              itemBuilder: (context, index) {
-                final CacheFont cacheFont = CacheFont(
-                  key: _getKeyCahce(index),
-                  fontName: 'Open Sans Reference',
-                  fontSize: 14,
-                );
-                cacheBackend.save(cacheFont);
-                final CacheSealedClassA cacheFontA = CacheSealedClassA(
-                  key: 'CacheBackendClassA_$index'.toLowerCase(),
-                  valueA: 'Description A $index',
-                );
-                cacheBackendClassA.save(cacheFontA);
-                final fontWeight = FontWeight.values[index];
-                return Row(
-                  mainAxisSize: MainAxisSize.max,
-                  spacing: 10,
-                  children: [
-                    Expanded(
-                      child: ColoredBox(
-                        color: Colors.transparent,
-                        child: Center(
-                          child: Text(
-                            'GoogleFont $index',
-                            style: GoogleFonts.openSans(
-                              fontWeight: fontWeight,
-                              fontSize: 26,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: ColoredBox(
-                        color: Colors.transparent,
-                        child: Center(
-                          child: Text(
-                            'Font $index',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: fontWeight,
-                              fontFamily: FontFamily.openSans,
-                              fontSize: 26,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            ),
+
             const SliverToBoxAdapter(
               child: Center(
                 child: Padding(
@@ -98,6 +43,11 @@ class _TestFontsState extends State<TestFonts> {
               itemCount: FontWeight.values.length,
               separatorBuilder: (context, index) => const SizedBox(height: 20),
               itemBuilder: (context, index) {
+                final CacheSealedClassA cacheFontA = CacheSealedClassA(
+                  key: 'CacheBackendClassA_$index'.toLowerCase(),
+                  valueA: 'Description A $index',
+                );
+                cacheBackend.put(cacheFontA.key, cacheFontA);
                 final fontWeight = FontWeight.values[index];
                 return Row(
                   mainAxisSize: MainAxisSize.max,
@@ -151,6 +101,4 @@ class _TestFontsState extends State<TestFonts> {
       ),
     );
   }
-
-  String _getKeyCahce(int index) => 'open_sans_$index';
 }
