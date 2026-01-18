@@ -1,3 +1,4 @@
+import 'package:exemplos_flutter/use_get_it/a_ui/users/user_view_model.dart';
 import 'package:exemplos_flutter/use_get_it/b_core/repository/users_repository.dart';
 import 'package:exemplos_flutter/use_get_it/config_dependencies.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,20 @@ class UsersView extends WatchingWidget {
 
   @override
   Widget build(BuildContext context) {
-    final list = watchValue((UsersRepository repo) => repo.listUsers);
+    pushScope(
+      init: (getIt) {
+        getIt.registerSingleton(UserViewModel(repository: getIt<UsersRepository>()));
+      },
+    );
+    final model = watchValue((UserViewModel value) {
+      return value.command;
+    });
+
     return ListView.builder(
-      itemCount: list.length,
-      semanticChildCount: list.length,
+      itemCount: model.length,
+      semanticChildCount: model.length,
       itemBuilder: (context, index) {
-        final user = list[index];
+        final user = model[index];
 
         return CheckboxListTile(
           title: Text(user.name),
@@ -21,7 +30,7 @@ class UsersView extends WatchingWidget {
           value: user.isChecked,
           onChanged: (bool? value) {
             user.isChecked = value ?? false;
-            getIt<UsersRepository>().updateUser(user);
+getIt<UserViewModel>() .updateUser(user);
           },
         );
       },

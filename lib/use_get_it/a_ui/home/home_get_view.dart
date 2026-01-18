@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:exemplos_flutter/use_get_it/a_ui/users/user_view_model.dart';
 import 'package:exemplos_flutter/use_get_it/a_ui/users/users_view.dart';
 import 'package:exemplos_flutter/use_get_it/b_core/repository/users_repository.dart';
 import 'package:exemplos_flutter/use_get_it/config_dependencies.dart';
@@ -27,13 +28,7 @@ class _HomeGetViewState extends State<HomeGetView> {
           ),
           IconButton(
             onPressed: () {
-              getIt<UsersRepository>().fetchUsers();
-            },
-            icon: const Icon(Icons.refresh),
-          ),
-          IconButton(
-            onPressed: () {
-              getIt<UsersRepository>().fetchUsers();
+              getIt.getAll<UserViewModel>(fromAllScopes: true).forEach((viewModel) => viewModel.fetchUsers());
             },
             icon: const Icon(Icons.refresh),
           ),

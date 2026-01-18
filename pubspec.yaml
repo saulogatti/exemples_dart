@@ -38,6 +38,7 @@ dependencies:
   meta: ^1.17.0
   get_it: ^9.2.0
   watch_it: ^2.4.1
+  flutter_it: ^2.1.1
 
 dev_dependencies:
   build_runner: ^2.10.5

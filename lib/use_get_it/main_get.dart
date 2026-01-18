@@ -15,7 +15,7 @@ class MainGet extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Exemplos Flutter - Get It',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue)),
       routerConfig: getIt<RotasGet>().config(),
     );
   }
