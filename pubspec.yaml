@@ -60,6 +60,9 @@ flutter_gen:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/corte.png
+    - assets/fonts/
   fonts:
     - family: Lato
       fonts:
