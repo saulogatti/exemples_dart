@@ -1,0 +1,7 @@
+// domain/entities/user_entity.dart
+class UserEntity {
+  UserEntity({required this.id, required this.name, required this.email});
+  final int id;
+  final String name;
+  final String email;
+}

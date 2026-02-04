@@ -4,6 +4,7 @@ formatter:
   page_width: 110
 analyzer:
   exclude:
+    - "lib/test_fonts/**"
     - "example/**"
     - "build/**"
   language:

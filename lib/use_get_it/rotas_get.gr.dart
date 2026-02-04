@@ -32,23 +32,23 @@ import 'package:flutter/material.dart' as _i13;
 
 /// generated route for
 /// [_i1.AgeInputScreen]
-class AgeInputRoute extends _i12.PageRouteInfo<AgeInputRouteArgs> {
-  AgeInputRoute({
+class AgeInputScreen extends _i12.PageRouteInfo<AgeInputScreenArgs> {
+  AgeInputScreen({
     required _i13.ValueChanged<int> onAgeSubmitted,
     _i13.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
-         AgeInputRoute.name,
-         args: AgeInputRouteArgs(onAgeSubmitted: onAgeSubmitted, key: key),
+         AgeInputScreen.name,
+         args: AgeInputScreenArgs(onAgeSubmitted: onAgeSubmitted, key: key),
          initialChildren: children,
        );
 
-  static const String name = 'AgeInputRoute';
+  static const String name = 'AgeInputScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<AgeInputRouteArgs>();
+      final args = data.argsAs<AgeInputScreenArgs>();
       return _i1.AgeInputScreen(
         onAgeSubmitted: args.onAgeSubmitted,
         key: args.key,
@@ -57,8 +57,8 @@ class AgeInputRoute extends _i12.PageRouteInfo<AgeInputRouteArgs> {
   );
 }
 
-class AgeInputRouteArgs {
-  const AgeInputRouteArgs({required this.onAgeSubmitted, this.key});
+class AgeInputScreenArgs {
+  const AgeInputScreenArgs({required this.onAgeSubmitted, this.key});
 
   final _i13.ValueChanged<int> onAgeSubmitted;
 
@@ -66,13 +66,13 @@ class AgeInputRouteArgs {
 
   @override
   String toString() {
-    return 'AgeInputRouteArgs{onAgeSubmitted: $onAgeSubmitted, key: $key}';
+    return 'AgeInputScreenArgs{onAgeSubmitted: $onAgeSubmitted, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (other is! AgeInputRouteArgs) return false;
+    if (other is! AgeInputScreenArgs) return false;
     return onAgeSubmitted == other.onAgeSubmitted && key == other.key;
   }
 
@@ -133,11 +133,11 @@ class BookDetailsRouteArgs {
 
 /// generated route for
 /// [_i3.BookListScreen]
-class BookListRoute extends _i12.PageRouteInfo<void> {
-  const BookListRoute({List<_i12.PageRouteInfo>? children})
-    : super(BookListRoute.name, initialChildren: children);
+class BookListScreen extends _i12.PageRouteInfo<void> {
+  const BookListScreen({List<_i12.PageRouteInfo>? children})
+    : super(BookListScreen.name, initialChildren: children);
 
-  static const String name = 'BookListRoute';
+  static const String name = 'BookListScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
@@ -149,11 +149,11 @@ class BookListRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.FirstScreen]
-class FirstRoute extends _i12.PageRouteInfo<void> {
-  const FirstRoute({List<_i12.PageRouteInfo>? children})
-    : super(FirstRoute.name, initialChildren: children);
+class FirstScreen extends _i12.PageRouteInfo<void> {
+  const FirstScreen({List<_i12.PageRouteInfo>? children})
+    : super(FirstScreen.name, initialChildren: children);
 
-  static const String name = 'FirstRoute';
+  static const String name = 'FirstScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
@@ -165,11 +165,11 @@ class FirstRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.HomeGetView]
-class HomeGetView extends _i12.PageRouteInfo<void> {
-  const HomeGetView({List<_i12.PageRouteInfo>? children})
-    : super(HomeGetView.name, initialChildren: children);
+class HomeGetRoute extends _i12.PageRouteInfo<void> {
+  const HomeGetRoute({List<_i12.PageRouteInfo>? children})
+    : super(HomeGetRoute.name, initialChildren: children);
 
-  static const String name = 'HomeGetView';
+  static const String name = 'HomeGetRoute';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
@@ -197,11 +197,11 @@ class HomeRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.HostScreen]
-class HostRoute extends _i12.PageRouteInfo<void> {
-  const HostRoute({List<_i12.PageRouteInfo>? children})
-    : super(HostRoute.name, initialChildren: children);
+class HostScreen extends _i12.PageRouteInfo<void> {
+  const HostScreen({List<_i12.PageRouteInfo>? children})
+    : super(HostScreen.name, initialChildren: children);
 
-  static const String name = 'HostRoute';
+  static const String name = 'HostScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
@@ -262,11 +262,11 @@ class LoginRouteArgs {
 
 /// generated route for
 /// [_i1.MainScreen]
-class MainRoute extends _i12.PageRouteInfo<void> {
-  const MainRoute({List<_i12.PageRouteInfo>? children})
-    : super(MainRoute.name, initialChildren: children);
+class MainScreen extends _i12.PageRouteInfo<void> {
+  const MainScreen({List<_i12.PageRouteInfo>? children})
+    : super(MainScreen.name, initialChildren: children);
 
-  static const String name = 'MainRoute';
+  static const String name = 'MainScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
@@ -346,23 +346,23 @@ class MyHomeRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.NameInputScreen]
-class NameInputRoute extends _i12.PageRouteInfo<NameInputRouteArgs> {
-  NameInputRoute({
+class NameInputScreen extends _i12.PageRouteInfo<NameInputScreenArgs> {
+  NameInputScreen({
     required _i13.ValueChanged<String> onNameSubmitted,
     _i13.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
-         NameInputRoute.name,
-         args: NameInputRouteArgs(onNameSubmitted: onNameSubmitted, key: key),
+         NameInputScreen.name,
+         args: NameInputScreenArgs(onNameSubmitted: onNameSubmitted, key: key),
          initialChildren: children,
        );
 
-  static const String name = 'NameInputRoute';
+  static const String name = 'NameInputScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<NameInputRouteArgs>();
+      final args = data.argsAs<NameInputScreenArgs>();
       return _i1.NameInputScreen(
         onNameSubmitted: args.onNameSubmitted,
         key: args.key,
@@ -371,8 +371,8 @@ class NameInputRoute extends _i12.PageRouteInfo<NameInputRouteArgs> {
   );
 }
 
-class NameInputRouteArgs {
-  const NameInputRouteArgs({required this.onNameSubmitted, this.key});
+class NameInputScreenArgs {
+  const NameInputScreenArgs({required this.onNameSubmitted, this.key});
 
   final _i13.ValueChanged<String> onNameSubmitted;
 
@@ -380,13 +380,13 @@ class NameInputRouteArgs {
 
   @override
   String toString() {
-    return 'NameInputRouteArgs{onNameSubmitted: $onNameSubmitted, key: $key}';
+    return 'NameInputScreenArgs{onNameSubmitted: $onNameSubmitted, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (other is! NameInputRouteArgs) return false;
+    if (other is! NameInputScreenArgs) return false;
     return onNameSubmitted == other.onNameSubmitted && key == other.key;
   }
 
@@ -412,24 +412,24 @@ class ProfileRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.ResultScreen]
-class ResultRoute extends _i12.PageRouteInfo<ResultRouteArgs> {
-  ResultRoute({
+class ResultScreen extends _i12.PageRouteInfo<ResultScreenArgs> {
+  ResultScreen({
     required _i1.Profile profile,
     required _i13.VoidCallback onReset,
     _i13.Key? key,
     List<_i12.PageRouteInfo>? children,
   }) : super(
-         ResultRoute.name,
-         args: ResultRouteArgs(profile: profile, onReset: onReset, key: key),
+         ResultScreen.name,
+         args: ResultScreenArgs(profile: profile, onReset: onReset, key: key),
          initialChildren: children,
        );
 
-  static const String name = 'ResultRoute';
+  static const String name = 'ResultScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<ResultRouteArgs>();
+      final args = data.argsAs<ResultScreenArgs>();
       return _i1.ResultScreen(
         profile: args.profile,
         onReset: args.onReset,
@@ -439,8 +439,8 @@ class ResultRoute extends _i12.PageRouteInfo<ResultRouteArgs> {
   );
 }
 
-class ResultRouteArgs {
-  const ResultRouteArgs({
+class ResultScreenArgs {
+  const ResultScreenArgs({
     required this.profile,
     required this.onReset,
     this.key,
@@ -454,13 +454,13 @@ class ResultRouteArgs {
 
   @override
   String toString() {
-    return 'ResultRouteArgs{profile: $profile, onReset: $onReset, key: $key}';
+    return 'ResultScreenArgs{profile: $profile, onReset: $onReset, key: $key}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (other is! ResultRouteArgs) return false;
+    if (other is! ResultScreenArgs) return false;
     return profile == other.profile &&
         onReset == other.onReset &&
         key == other.key;
@@ -472,11 +472,11 @@ class ResultRouteArgs {
 
 /// generated route for
 /// [_i4.SecondScreen]
-class SecondRoute extends _i12.PageRouteInfo<void> {
-  const SecondRoute({List<_i12.PageRouteInfo>? children})
-    : super(SecondRoute.name, initialChildren: children);
+class SecondScreen extends _i12.PageRouteInfo<void> {
+  const SecondScreen({List<_i12.PageRouteInfo>? children})
+    : super(SecondScreen.name, initialChildren: children);
 
-  static const String name = 'SecondRoute';
+  static const String name = 'SecondScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,
@@ -547,11 +547,11 @@ class SettingsTabArgs {
 
 /// generated route for
 /// [_i6.WelcomeScreen]
-class WelcomeRoute extends _i12.PageRouteInfo<void> {
-  const WelcomeRoute({List<_i12.PageRouteInfo>? children})
-    : super(WelcomeRoute.name, initialChildren: children);
+class WelcomeScreen extends _i12.PageRouteInfo<void> {
+  const WelcomeScreen({List<_i12.PageRouteInfo>? children})
+    : super(WelcomeScreen.name, initialChildren: children);
 
-  static const String name = 'WelcomeRoute';
+  static const String name = 'WelcomeScreen';
 
   static _i12.PageInfo page = _i12.PageInfo(
     name,

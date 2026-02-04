@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  LogCustomPrinterBase(logPrinterCustom: LogDisplayHandler());
   if (executeRoutes) {
     runApp(const MyAppRoutes());
   } else {
@@ -57,7 +58,6 @@ class _MyAppRoutesState extends State<MyAppRoutes> {
 
   @override
   void initState() {
-    LogCustomPrinterBase.colorPrint();
     super.initState();
   }
 }
@@ -73,8 +73,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    LogCustomPrinterBase.colorPrint();
-    LogDisplayHandler();
     super.initState();
   }
 }

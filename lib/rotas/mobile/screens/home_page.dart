@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:exemplos_flutter/logs/widget/exemplo_erros.dart';
 import 'package:exemplos_flutter/rotas/mobile/router/router.dart';
 import 'package:exemplos_flutter/router_config.gr.dart';
 import 'package:flutter/foundation.dart';
@@ -71,6 +72,14 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 appBar: AppBar(
                   backgroundColor: Colors.amber,
                   leading: const AutoLeadingButton(),
+                  actions: [
+                    IconButton(
+                      icon: const Icon(Icons.settings),
+                      onPressed: () {
+                        AutoRouter.of(context).pushWidget(const ExemploErros());
+                      },
+                    ),
+                  ],
                   title: Text(context.topRoute.title(context)),
                   // bottom: TabBar(
                   //   controller: controller,
